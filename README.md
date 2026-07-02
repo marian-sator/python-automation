@@ -14,7 +14,17 @@ Generates secure passwords with customizable character sets, length, and complex
 ### api_monitor.py
 Monitors URL availability and response times. Runs continuously and alerts on failures.
 
+### data_processor.py
+Processes large transaction datasets (100,000+ entries) with performance tracking.
+
+**Key features:**
+- Duplicate detection using dictionary lookup O(1) instead of iteration O(n²)
+- Single-pass processing - filters and aggregates in one loop
+- Optional sorting for flexibility
+- Built-in performance measurement in milliseconds
+
 ## Skills demonstrated
 - REST API integration
 - Data processing and filtering
 - Error handling
+- Performance-oriented thinking
