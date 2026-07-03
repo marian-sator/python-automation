@@ -46,10 +46,8 @@ Key features:
 
 ## Skills demonstrated
 - REST API integration
-- Web scraping and browser automation (Selenium, BeautifulSoup)
 - Data processing and filtering
 - Error handling
 - Performance-oriented thinking
 - Data validation and cleaning
 - CSV processing
-- Regex-based data extraction
