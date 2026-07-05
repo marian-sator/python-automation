@@ -32,6 +32,7 @@ try:
         dmy = time.strftime('%d.%m.%Y')
 
         if timestamps.get(dmy, False):
+            time.sleep(10)
             continue
 
         try:
