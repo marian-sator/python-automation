@@ -53,7 +53,7 @@ try:
             rate = data["rate"]
             timestamp = time.strftime('[%d.%m.%Y %H:%M:%S]')
 
-            print(timestamp, "1 eur =", rate, "usd")
+            print(timestamp, "1$ =", rate, "eur")
 
             cursor.execute("""
                 INSERT INTO exchange_rates (timestamp, rate)
