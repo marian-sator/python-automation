@@ -6,7 +6,7 @@ from datetime import datetime
 
 timestamps = {}
 
-db = sqlite3.connect(os.path.dirname(os.path.abspath(__file__)) + "\\database.db")
+db = sqlite3.connect(os.path.dirname(os.path.abspath(__file__)) + "\\exchange_rates.db")
 
 cursor = db.cursor()
 
