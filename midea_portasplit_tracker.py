@@ -24,7 +24,6 @@ def init_cache(name):
     cache["supplier"].setdefault(name, {"status": {"prev": 0}, "price": None})
 
 def parse_bauhaus(name, content):
-    init_cache(name)
 
     soup = BeautifulSoup(content, "html.parser")
 
@@ -52,7 +51,6 @@ def parse_bauhaus(name, content):
     cache["supplier"][name]["status"]["new"] = 0
 
 def parse_media_markt(name, content):
-    init_cache(name)
 
     soup = BeautifulSoup(content, "html.parser")
 
@@ -85,7 +83,6 @@ def parse_media_markt(name, content):
     cache["supplier"][name]["status"]["new"] = 0
 
 def parse_obi(name, content):
-    init_cache(name)
 
     soup = BeautifulSoup(content, "html.parser")
 
@@ -194,6 +191,8 @@ def parse_websites():
             WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
+
+            init_cache(supplier["name"])
 
             supplier["handler"](supplier["name"], driver.page_source)
 
