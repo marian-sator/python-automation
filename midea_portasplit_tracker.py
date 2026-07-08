@@ -150,18 +150,22 @@ def update_status():
         requests.delete(f"{DISCORD_WEBHOOK}/messages/{cache['message_id']}")
         cache["message_id"] = None
 
-    status = "```Midea PortaSplit Tracker```\n"
+    description = ""
 
     for supplier in suppliers:
         v = cache["supplier"][supplier["name"]]
-
-        status_emoji = ":green_circle:" if v["status"]["new"] == 1 else ":red_circle:"
+        
+        status_line = "\nStatus: :green_circle:" if v["status"]["new"] == 1 else "\nStatus: :red_circle:"
         price_line = f"\nPrice: {v['price']}€" if v["status"]["new"] == 1 else ""
 
-        status += f"Supplier: {supplier['name']}{price_line}\nUrl: <{supplier['url']}>\nStatus: {status_emoji}\n\n"
+        description += f"Supplier: {supplier['name']}{price_line}\nWebsite: [Click here]({supplier['url']}){status_line}\n\n"
 
     res = requests.post(f"{DISCORD_WEBHOOK}?wait=true", json={
-        "content": status
+        "embeds": [{
+            "title": "Midea PortaSplit Tracker",
+            "description": description,
+            "color": 0x5865F2
+        }]
     })
 
     if res.status_code == 200:
