@@ -36,13 +36,14 @@ Key features:
 - Built-in performance measurement in milliseconds
 
 ### midea_portasplit_tracker.py
-Monitors three Austrian retailers (BAUHAUS, MediaMarkt, OBI) for availability of the Midea PortaSplit air conditioning unit and sends a Discord notification the moment it becomes purchasable.
+Monitors three Austrian retailers (BAUHAUS, MediaMarkt, OBI) for availability of the Midea PortaSplit air conditioning unit and keeps a single, continuously replaced Discord status message up to date — re-posting on every check while at least one retailer has stock, to ensure mobile push notifications actually come through.
 
 Key features:
 - Headless browser automation with Selenium to handle JavaScript-rendered content
 - Retailer-specific parsing strategies: dataLayer extraction (BAUHAUS), unicode-escaped hydration JSON (MediaMarkt), and ld+json structured data (OBI)
+- Per-retailer state caching, only committed after a successful Discord post to prevent missed updates on network failures
+- Single self-replacing Discord embed with clickable links and color-coded availability status
 - Continuous polling at a configurable interval
-- Discord webhook notification on availability
 
 ### exchange-rate-tracker/
 Tracks the EUR/USD exchange rate daily via the Frankfurter API and stores historical data in a local SQLite database.
